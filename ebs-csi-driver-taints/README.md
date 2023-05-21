@@ -4,7 +4,9 @@
 By default the PV will get created where the pod is scheduled. If you wish to provision topology aware volumes, read ahead...
 
 ### Install EBS CSI driver
-Step 1 - Create EBS CSI driver IAM role using [this doc](https://docs.aws.amazon.com/eks/latest/userguide/csi-iam-role.html)
+Step 1 - Create EBS CSI driver IAM role using [this doc](https://docs.aws.amazon.com/eks/latest/userguide/csi-iam-role.html)  
+
+
 Step 2 - If the CSI driver has not been installed, recommeded to install as a managed add-on from the EKS management console.
 ![csimanagedaddon](imgs/csi-managed-addon.png)
 
@@ -43,7 +45,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-ebs-csi-d
 ```
 
 ## Handling Taints
-Amazon EKS team recently announced the general availability of advanced configuration feature for managed add-ons. You can now pass in advanced configuration for cluster add-ons, enabling you to customize add-on properties not handled by default settings. Configuration can be applied to add-ons either during cluster creation or at any time after the cluster is created.
-Using advanced configuration feature, you can now configure custom tolerations for Amazon EBS CSI driver addon starting from v1.14.0-eksbuild.1. Custom tolerations can be configured through controller.tolerations and node.tolerations. Note, node.tolerateAllTaints will continue to default to true.
+Amazon EKS team recently announced the general availability of advanced configuration feature for managed add-ons. You can now pass in advanced configuration for cluster add-ons, enabling you to customize add-on properties not handled by default settings. Configuration can be applied to add-ons either during cluster creation or at any time after the cluster is created.  
+
+Using advanced configuration feature, you can now configure custom tolerations for Amazon EBS CSI driver addon starting from v1.14.0-eksbuild.1. Custom tolerations can be configured through `controller.tolerations` and `node.tolerations`. Note, node.tolerateAllTaints will continue to default to true.  
+
 To learn more about this feature, check out [this blog](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/)
 Check out the Amazon EKS [documentation](https://docs.aws.amazon.com/eks/latest/userguide/managing-add-ons.html)
