@@ -1,0 +1,12 @@
+apiVersion: vpcresources.k8s.aws/v1beta1
+kind: SecurityGroupPolicy
+metadata:
+  name: mySecurityGroupPolicy
+  namespace: sg-per-pod-demo
+spec:
+  podSelector:
+    matchLabels:
+      app: green-pod
+  securityGroups:
+    groupIds:
+      - sg-1234567890

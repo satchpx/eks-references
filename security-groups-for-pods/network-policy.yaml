@@ -1,0 +1,13 @@
+kind: NetworkPolicy
+metadata:
+  name: deny-all
+  namespace: sg-per-pod-demo
+spec:
+  podSelector: 
+    matchLabels: 
+      app: green-pod
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress: []
+  egress: []
